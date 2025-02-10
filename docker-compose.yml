@@ -11,12 +11,11 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - ENV=local
-      - DB_HOST=mysql
-      - DB_PORT=3306
       - DB_NAME=app_db
       - DB_USER=app_user
-      - DB_PASSWORD=1234
+      - DB_PASSWORD=your_secure_password
+      - DB_HOST=mysql
+      - DB_PORT=3306
     networks:
       db-data-net:
     depends_on:
@@ -33,10 +32,10 @@ services:
     volumes:
       - db-data:/var/lib/mysql
     environment:
-     - MYSQL_ROOT_PASSWORD=1234
+     - MYSQL_ROOT_PASSWORD=your_secure_root_password
      - MYSQL_DATABASE=app_db
      - MYSQL_USER=app_user
-     - MYSQL_PASSWORD=1234
+     - MYSQL_PASSWORD=your_secure_password
     networks:
       - db-data-net
 volumes:
